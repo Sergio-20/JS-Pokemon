@@ -1,14 +1,16 @@
+// The Game State Object
 let gameState = {
 	cpuPokemon: "",
 	playerPokemon: ""
 };
 
+// Element Variables
 let attackBtnsEl = document.getElementById("battle-screen").querySelectorAll(".attack");
 let battleScreenEl = document.getElementById("battle-screen");
 let pokemonEl = document.querySelector(".select-screen").querySelectorAll(".character");
 
 
-
+/**** Sets up the battle between the player and the computer  ***/
 let i = 0;
 while( i < pokemonEl.length )
 	{
@@ -48,6 +50,7 @@ while( i < pokemonEl.length )
 	}
 
 
+/******* The Game Logic Between the CPU and Player ******/
 let j = 0;
 while( j < attackBtnsEl.length )
 	{
@@ -73,6 +76,7 @@ let calcInitHealth = function ( user ) {
 	return ((0.20 * Math.sqrt(user[0].level)) * user[0].stamina) * user[0].hp;
 };
 
+/******* Calculates the damage done and taken for the CPU and Player ******/
 let attackMove = function ( attack, level, stack, critical, enemy, attacker ) {
 	console.log(enemy.name + " before: " + enemy.health);
 	let attackAmount =  ( ( attack * level ) * ( stack * critical ) );
@@ -96,6 +100,7 @@ let attackMove = function ( attack, level, stack, critical, enemy, attacker ) {
 	console.log(enemy.name + " after: " + enemy.health);
 };
 
+
 let checkWinner = function ( enemy, attacker ) {
 	if( enemy.health <= 0 )
 		{
@@ -103,6 +108,9 @@ let checkWinner = function ( enemy, attacker ) {
 		}
 };
 
+
+
+/******* This Function Handles The Game Logic Between the CPU and Player ******/
 let play = function ( userAttack, cpuAttack )
 {
 
@@ -268,10 +276,7 @@ function cpuSelect()
 	while( gameState.playerPokemon == gameState.cpuPokemon );
 }
 
-
-// pokemon
-// create data for 3 different pokemons, with their names, type, weaknesses, health, and attack moves(name, attack stat, maximum)
-
+/******* The Database of Pokemon ******/
 var pokemonDB = [
   {
     name: 'charmander',
