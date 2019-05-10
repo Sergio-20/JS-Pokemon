@@ -96,7 +96,7 @@ let attackMove = function ( attack, level, stack, critical, enemy, attacker ) {
 		let minusPercent = ( ( enemy.health * 100 ) / enemy.originalHealth );
 		cpuHP.style.width = ( ( minusPercent < 0 ) ? 0 : minusPercent ) + "%";
 	}
-	checkWinner( enemy );
+	checkWinner( enemy, attacker );
 	console.log(enemy.name + " after: " + enemy.health);
 };
 
@@ -104,7 +104,8 @@ let attackMove = function ( attack, level, stack, critical, enemy, attacker ) {
 let checkWinner = function ( enemy, attacker ) {
 	if( enemy.health <= 0 )
 		{
-			console.log(attacker.name + " wins!");
+			alert(attacker.name + " wins!");
+			location.reload();
 		}
 };
 
