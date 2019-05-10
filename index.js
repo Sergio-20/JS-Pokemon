@@ -3,11 +3,10 @@ let gameState = {
 	playerPokemon: ""
 };
 
+let attackBtnsEl = document.getElementById("battle-screen").querySelectorAll(".attack");
+let battleScreenEl = document.getElementById("battle-screen");
 let pokemonEl = document.querySelector(".select-screen").querySelectorAll(".character");
 
-let battleScreenEl = document.getElementById("battle-screen");
-
-let attackBtnsEl = document.getElementById("battle-screen").querySelectorAll(".attack");
 
 
 let i = 0;
@@ -303,5 +302,3 @@ var pokemonDB = [
   }
 
 ]
-
-// when one user loses all his health declare a winner
